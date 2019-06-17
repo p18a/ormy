@@ -1,0 +1,83 @@
+@tailwind base;
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    @apply text-light bg-dark-900;
+}
+
+p {
+    margin-bottom: 0.5rem;
+}
+
+button:focus {
+    outline-style: none;
+    box-shadow: none;
+    border-color: transparent;
+}
+
+button:focus {
+    outline: none;
+    shadow: none;
+}
+
+a:not(.nav-link) {
+    @apply text-accent underline;
+}
+
+h1 {
+    @apply text-2xl;
+}
+h2 {
+    @apply text-xl;
+}
+h3 {
+    @apply text-lg;
+}
+
+.navmodal-enter {
+    opacity: 0;
+}
+.navmodal-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+}
+.navmodal-exit {
+    opacity: 1;
+}
+.navmodal-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
+}
+
+.btn {
+    @apply inline-flex justify-center items-center border rounded border-light bg-light py-2 px-4 text-gray-900 font-semibold text-lg uppercase;
+}
+
+.btn:hover {
+    @apply bg-gray-400 border-gray-400;
+}
+
+.btn--outline {
+    @apply bg-transparent text-light;
+}
+
+.btn--outline:hover {
+    @apply bg-light border-light text-dark-900;
+}
+
+.btn--text {
+    @apply border-transparent bg-transparent text-light;
+}
+
+.btn--text:hover {
+    @apply border-transparent bg-transparent text-light;
+}
+
+.container {
+    @apply max-w-6xl w-full mx-auto px-4
+}
+
+@tailwind components;
+@tailwind utilities;
