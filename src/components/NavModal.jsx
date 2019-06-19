@@ -8,26 +8,31 @@ import InfoIcon from "../icons/info.svg";
 import CalendarIcon from "../icons/calendar.svg";
 import MailIcon from "../icons/mail.svg";
 
-const duration = 200;
+const transition = 200;
 
 const defaultStyle = {
-    transition: `opacity ${duration}ms ease-in-out`,
+    transition: `opacity ${transition}ms ease-in-out`,
     opacity: 0,
 };
 
 const transitionStyles = {
-    entering: { opacity: 1, height: "0rem" },
-    entered: { opacity: 1, height: "16rem" },
-    exiting: { opacity: 0, height: "0rem" },
-    exited: { opacity: 0, display: "none" },
+    entering: { opacity: 0 },
+    entered: { opacity: 1 },
+    exiting: { opacity: 0 },
+    exited: { opacity: 0 },
 };
 
 const NavModal = ({ modalOpen, handleModal }) => {
     return (
-        <Transition in={modalOpen} timeout={duration}>
+        <Transition
+            in={modalOpen}
+            timeout={transition}
+            mountOnEnter={true}
+            unmountOnExit={true}
+        >
             {state => (
                 <nav
-                    className="block md:hidden fixed top-0 inset-x w-full p-4 z-30"
+                    className="block md:hidden fixed top-0 inset-x w-full p-4 z-50"
                     style={{
                         ...defaultStyle,
                         ...transitionStyles[state],

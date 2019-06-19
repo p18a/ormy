@@ -1,16 +1,16 @@
 module.exports = {
     siteMetadata: {
-        title: `Gatsby Default Starter`,
-        description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-        author: `@gatsbyjs`,
+        title: `ÖRMY ry`,
+        description: `Oulun yliopiston raskaan musiikin ystävät ry.`,
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
         {
-            resolve: `gatsby-source-filesystem`,
+            resolve: `gatsby-source-contentful`,
             options: {
-                name: `images`,
-                path: `${__dirname}/src/images`,
+                spaceId: `7d6366zmkfaz`,
+                accessToken: `6ALZIo6us1Iae8KkFisN6D0Tpy2mwKBleFNCYVYPWJM`,
+                host: `cdn.contentful.com`,
             },
         },
         {
@@ -32,7 +32,7 @@ module.exports = {
                 // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
                 // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
             },
-            whitelist: ["h-6", "w-6", "h-8", "w-8", "fill-current"]
+            whitelist: ["h-6", "w-6", "h-8", "w-8", "fill-current"],
         },
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,

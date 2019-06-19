@@ -3,7 +3,9 @@ module.exports = {
         extend: {
             colors: {
                 light: "#F7F1F8",
-                accent: "#FF0266",
+                accent: "#EF5350",
+
+                "inherit": "inherit",
 
                 "dark-900": "#121212",
                 "dark-800": "#1E1E1E",
@@ -14,6 +16,9 @@ module.exports = {
                 "dark-300": "#2D2D2D",
                 "dark-200": "#333333",
                 "dark-100": "#343434",
+            },
+            fontSize: {
+                "base": "17px"
             },
             minHeight: theme => ({
                 auto: "auto",

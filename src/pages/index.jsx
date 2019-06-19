@@ -1,34 +1,119 @@
 import React from "react";
+import { Transition } from "react-transition-group";
+import throttle from "lodash.throttle";
 
+import HeroHeader from "../components/HeroHeader.jsx";
+import Logo from "../logo.svg";
 import Layout from "../components/Layout.jsx";
 import "../styles.css";
-import ipsum from "../ipsum";
-import Card from "../components/Card.jsx";
+import AboutCard from "../components/AboutCard.jsx";
+import ContactCard from "../components/ContactCard.jsx";
+import MembershipCard from "../components/MembershipCard.jsx";
+import SEO from "../components/SEO.jsx";
+import DocumentsCard from "../components/DocumentsCard.jsx";
+import FutureEvents from "../components/FutureEvents.jsx";
 
-const IndexPage = () => (
-    <>
-        <Layout>
-            <img
-                src="http://i.imgur.com/lojmr.jpg"
-                alt="bliss"
-                style={{
-                    height: "50vh",
-                    width: "100%",
-                    objectFit: "cover",
-                    position: "fixed",
-                    top: "5rem",
-                }}
-            />
-            <div style={{ height: "50vh", width: "100%" }}></div>
-            <div className="container py-8 px-4" style={{ zIndex: "2" }}>
-                <div className="bg-dark-800 shadow-lg">
-                    <Card title={"Ipsumia tänne"} content={ipsum}></Card>
-                    <Card title={"Ipsumia tänne"} content={ipsum}></Card>
-                    <Card title={"Ipsumia tänne"} content={ipsum}></Card>
-                </div>
-            </div>
-        </Layout>
-    </>
-);
+const headerSize = "60vh";
+
+const transition = 500;
+
+const scrollThreshold = 150;
+
+const defaultStyle = {
+    transition: `opacity ${transition}ms ease-in-out`,
+    opacity: 1,
+};
+
+const transitionStyles = {
+    entering: { opacity: 1 },
+    entered: { opacity: 1 },
+    exiting: { opacity: 0 },
+    exited: { opacity: 0 },
+};
+
+class IndexPage extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            scrolled: false,
+            listener: null,
+        };
+    }
+
+    onScroll = throttle(() => {
+        this.setState({ scrolled: window.scrollY > scrollThreshold });
+    }, 100);
+
+    componentDidMount() {
+        document.addEventListener(
+            "scroll",
+            this.onScroll
+        );
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener("scroll", this.onScroll)
+    }
+
+    render() {
+        return (
+            <>
+                <SEO title="Etusivu"></SEO>
+                <Layout>
+                    <Transition in={!this.state.scrolled} timeout={transition}>
+                        {state => (
+                            <div
+                                className="bg-inherit relative"
+                                style={{
+                                    position: "fixed",
+                                    height: headerSize,
+                                    width: "100%",
+                                    ...defaultStyle,
+                                    ...transitionStyles[state],
+                                }}
+                            >
+                                <HeroHeader></HeroHeader>
+                                <div
+                                    className="absolute flex items-center justify-center inset-0 text-white h-full w-full"
+                                    style={{
+                                        boxShadow:
+                                            "inset 0px -50px 40px -35px rgba(18,18,18,1)",
+                                    }}
+                                >
+                                    <Logo
+                                        style={{
+                                            height: "60%",
+                                            width: "90%",
+                                            margin: "auto",
+                                        }}
+                                    ></Logo>
+                                </div>
+                            </div>
+                        )}
+                    </Transition>
+                    <div
+                        className="container z-20"
+                        style={{ marginTop: headerSize }}
+                    >
+                        <div className="bg-dark-900 rounded">
+                            <AboutCard />
+                            <FutureEvents desc={false} />
+                            <MembershipCard />
+                            <div className="flex flex-wrap">
+                                <div className="w-full md:w-1/2">
+                                    <DocumentsCard />
+                                </div>
+                                <div className="w-full md:w-1/2">
+                                    <ContactCard />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Layout>
+            </>
+        );
+    }
+}
 
 export default IndexPage;

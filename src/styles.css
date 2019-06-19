@@ -4,11 +4,11 @@ html,
 body {
     padding: 0;
     margin: 0;
-    @apply text-light bg-dark-900;
+    @apply text-gray-200 bg-dark-900 text-base;
 }
 
 p {
-    margin-bottom: 0.5rem;
+    @apply text-base mb-2;
 }
 
 button:focus {
@@ -19,36 +19,61 @@ button:focus {
 
 button:focus {
     outline: none;
-    shadow: none;
+    box-shadow: none;
 }
 
 a:not(.nav-link) {
-    @apply text-accent underline;
+    @apply text-accent underline break-all;
+}
+
+h1,
+h2,
+h3 {
+    @apply mb-4;
 }
 
 h1 {
-    @apply text-2xl;
+    @apply text-3xl;
 }
 h2 {
-    @apply text-xl;
+    @apply text-2xl;
 }
 h3 {
-    @apply text-lg;
+    @apply text-xl;
 }
 
-.navmodal-enter {
-    opacity: 0;
+th {
+    @apply text-left px-2 py-4;
 }
-.navmodal-enter-active {
-    opacity: 1;
-    transition: opacity 200ms;
+
+table {
+    @apply w-full table-fixed;
 }
-.navmodal-exit {
-    opacity: 1;
+
+thead {
+    @apply border-b-2 border-dark-100;
 }
-.navmodal-exit-active {
-    opacity: 0;
-    transition: opacity 200ms;
+
+tr {
+    @apply border-b border-dark-100;
+}
+
+td {
+    @apply px-2 py-4;
+}
+
+.card-fade:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-shadow: inset 0px -35px 20px -30px rgba(18,18,18,1);
+}
+
+.link-row:hover {
+    @apply cursor-pointer bg-dark-800;
 }
 
 .btn {
@@ -76,7 +101,7 @@ h3 {
 }
 
 .container {
-    @apply max-w-6xl w-full mx-auto px-4
+    @apply max-w-6xl w-full mx-auto px-4 py-8;
 }
 
 @tailwind components;

@@ -3,19 +3,30 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 
 import MenuIcon from "../icons/menu.svg";
+import MailIcon from "../icons/mail.svg";
 
 const Navbar = ({ links, handleModal }) => {
     return (
-        <div className="bg-dark-600 shadow-xl text-gray-200 h-20 z-20 sticky top-0 w-full">
+        <div className="bg-dark-800 shadow-lg text-gray-200 h-full z-30 w-full">
             <nav className="hidden md:flex items-center justify-between flex-wrap max-w-6xl h-full mx-auto px-4">
                 <ul className="flex flex-shrink mr-2">
                     {links.map((link, i) => (
-                        <li key={i} className="font-semibold text-xl uppercase px-3 py-2">
-                            <Link className="nav-link" to={link.url}>{link.title}</Link>
+                        <li
+                            key={i}
+                            className="font-semibold text-lg uppercase px-3 py-2 m-0"
+                        >
+                            <Link className="nav-link" to={link.url}>
+                                {link.title}
+                            </Link>
                         </li>
                     ))}
                 </ul>
-                <button className="font-semibold text-xl uppercase px-3 py-2">abc</button>
+                <span className="inline-flex items-center">
+                    <MailIcon></MailIcon>
+                    <button className="font-semibold text-lg uppercase px-3 pr-2 pl-1">
+                        Liity sähköpostilistalle
+                    </button>
+                </span>
             </nav>
             <nav className="md:hidden flex flex-row-reverse items-center h-full">
                 <button className="btn btn--text" onClick={handleModal}>
