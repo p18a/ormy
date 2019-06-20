@@ -8,7 +8,6 @@ import Layout from "../components/Layout.jsx";
 import HeroHeader from "../components/HeroHeader.jsx";
 import AboutCard from "../components/AboutCard.jsx";
 import ContactCard from "../components/ContactCard.jsx";
-import "../styles.css";
 import FutureEventsOverview from "../components/FutureEventsOverview";
 
 const headerSize = "60vh";
