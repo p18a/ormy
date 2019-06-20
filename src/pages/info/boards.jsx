@@ -4,11 +4,12 @@ import { useStaticQuery, graphql } from "gatsby";
 import Layout from "../../components/Layout";
 import Board from "../../components/Board";
 import Card from "../../components/Card";
+import SEO from "../../components/SEO";
 
 const BoardsPage = () => {
     const data = useStaticQuery(graphql`
         query BoardsQuery {
-            allContentfulBoard(sort: { fields: year, order: DESC } limit: 20) {
+            allContentfulBoard(sort: { fields: year, order: DESC }, limit: 20) {
                 edges {
                     node {
                         year
@@ -39,9 +40,12 @@ const BoardsPage = () => {
     ));
 
     return (
-        <Layout>
-            <div className="container">{boardElems}</div>
-        </Layout>
+        <>
+            <SEO title={"Hallitukset"} />
+            <Layout>
+                <div className="container">{boardElems}</div>
+            </Layout>
+        </>
     );
 };
 

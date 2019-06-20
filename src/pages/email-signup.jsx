@@ -1,11 +1,14 @@
 import React from "react";
 import { navigate } from "gatsby";
 
+import SEO from "../components/SEO.jsx"
 import Layout from "../components/Layout.jsx";
 import Card from "../components/Card.jsx";
 
 const EmailSignupPage = () => {
     return (
+        <>
+        <SEO title={"Sähköpostilista"} />
         <Layout>
             <div className="container mw-16">
                 <Card>
@@ -68,6 +71,7 @@ const EmailSignupPage = () => {
                 </Card>
             </div>
         </Layout>
+        </>
     );
 };
 
