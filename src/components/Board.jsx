@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import Image from "gatsby-image";
 
-import Card from "./Card";
-
 const Board = ({ year, board, officials, image }) => {
     const boardElem = board ? (
         <>

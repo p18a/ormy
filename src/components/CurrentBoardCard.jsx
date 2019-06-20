@@ -27,7 +27,6 @@ const CurrentBoardCard = () => {
     const result = data.allContentfulBoard
         ? data.allContentfulBoard.edges[0].node
         : null;
-    console.log(data, result);
 
     if (!result) {
         return null;
@@ -42,7 +41,7 @@ const CurrentBoardCard = () => {
                     officials={result.officials}
                     image={result.image.fluid}
                 />
-                <div className="flex items-center justify-start">
+                <div className="flex items-center justify-end">
                     <Link className="mt-2 text-light font-semibold" to="/info/boards">
                         Edellisvuosien hallitukset
                     </Link>

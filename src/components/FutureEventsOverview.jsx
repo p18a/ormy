@@ -30,7 +30,7 @@ const FutureEventsOverview = () => {
     const results = data.allContentfulEvent || [];
 
     const events = results.edges.map((edge, i) => (
-        <div className="py-4">
+        <div className="py-4" key={i}>
             {i !== 0 ? (
                 <div className="border-b border-dark-100 w-full"></div>
             ) : null}
@@ -44,6 +44,7 @@ const FutureEventsOverview = () => {
         </div>
     ));
 
+    console.log(events);
     return (
         <Card>
             <h1>
@@ -52,7 +53,7 @@ const FutureEventsOverview = () => {
                     : "Ei tulevia tapahtumia listattuna"}
             </h1>
             {events.length ? (
-                { events }
+                events
             ) : (
                 <p>
                     Ei tulevia tapahtumia listattuna. Örmyn hallitus
