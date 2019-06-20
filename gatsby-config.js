@@ -1,3 +1,7 @@
+require("dotenv").config({
+    path: `.env`
+});
+
 module.exports = {
     siteMetadata: {
         title: `ÖRMY ry`,
@@ -8,8 +12,8 @@ module.exports = {
         {
             resolve: `gatsby-source-contentful`,
             options: {
-                spaceId: `7d6366zmkfaz`,
-                accessToken: `6ALZIo6us1Iae8KkFisN6D0Tpy2mwKBleFNCYVYPWJM`,
+                spaceId: `${process.env.CONTENTFUL_SPACE_ID}`,
+                accessToken: `${process.env.CONTENTFUL_ACCESS_TOKEN}`,
                 host: `cdn.contentful.com`,
             },
         },
