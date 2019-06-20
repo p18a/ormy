@@ -25,9 +25,10 @@ const EmailSignupPage = () => {
                                 Nimi
                             </label>
                             <input
-                                className="text-dark-800 shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                                 id="Name"
+                                name="Name"
                                 type="name"
+                                className="text-dark-800 shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
                         </div>
                         <div className="mb-4">
@@ -35,9 +36,10 @@ const EmailSignupPage = () => {
                                 Sähköpostiosoite
                             </label>
                             <input
-                                className="text-dark-800 shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                                 id="Email"
+                                name="Email"
                                 type="email"
+                                className="text-dark-800 shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
                             />
                         </div>
                         <div className="mb-6">
