@@ -20,10 +20,20 @@ const Footer = () => {
                     }
                 }
             }
+            contentfulConfig {
+                notes
+            }
         }
     `);
 
-    const sponsors = data.allContentfulSponsor.edges.map((edge, i) => (
+    const sponsorResult = data.allContentfulSponsor
+        ? data.allContentfulSponsor.edges
+        : [];
+    const notesResult = data.contentfulConfig
+        ? data.contentfulConfig.notes
+        : [];
+
+    const sponsors = sponsorResult.map((edge, i) => (
         <a
             key={i}
             href={edge.node.link}
@@ -33,15 +43,28 @@ const Footer = () => {
                 height: "100%",
                 display: "inline-block",
                 flexBasis: "20rem",
+                padding: "1rem",
             }}
         >
-            <Image imgStyle={{filter: "brightness(0) invert(1)"}} fluid={edge.node.image.fluid}></Image>
+            <Image
+                imgStyle={{ filter: "brightness(0) invert(1)" }}
+                fluid={edge.node.image.fluid}
+            ></Image>
         </a>
     ));
 
+    const notes = notesResult.map((note, i) => <span>{note}</span>);
+
     return (
-        <div className="min-h-64 h-full bg-dark-900 z-10 flex flex-wrap items-center justify-around">
-            {sponsors}
+        <div className="bg-dark-900 z-10">
+            <div className="flex flex-wrap items-center justify-around">
+                {sponsors}
+            </div>
+            {notes ? (
+                <div className="flex flex-col items-center text-dark-100">
+                    {notes}
+                </div>
+            ) : null}
         </div>
     );
 };

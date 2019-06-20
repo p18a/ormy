@@ -38,7 +38,7 @@ const FutureEvents = ({ desc = true }) => {
 
     return (
         <div>
-            <h1 className="px-4">Tulevat tapahtumat</h1>
+            <h1 className="px-4 pt-4">Tulevat tapahtumat</h1>
             {data.allContentfulEvent.edges.map((edge, i) => (
                 <Card key={i}>
                     <h2>

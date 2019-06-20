@@ -3,7 +3,9 @@ import Layout from "../components/Layout.jsx";
 
 const NotFoundPage = () => (
     <Layout>
-        <h1 className="py-4">404</h1>
+        <div className="container">
+            <h1>404 Not Found</h1>
+        </div>
     </Layout>
 );
 

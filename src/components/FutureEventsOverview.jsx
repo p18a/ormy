@@ -30,28 +30,31 @@ const FutureEventsOverview = () => {
     const results = data.allContentfulEvent || [];
 
     const events = results.edges.map((edge, i) => (
-        <div className="py-4" key={i}>
+        <div key={i}>
             {i !== 0 ? (
                 <div className="border-b border-dark-100 w-full"></div>
             ) : null}
-            <span className="flex items-start">
-                <h2 className="pr-2">{edge.node.title}</h2>
-                <Link to={edge.node.fields.slug} aria-label={`Avaa tapahtuma`}>
-                    <OpenIcon style={{ marginTop: "10px" }} />
-                </Link>
-            </span>
-            <EventFooter date={edge.node.date} location={edge.node.location} />
+            <div className="py-4">
+                <span className="flex items-start">
+                    <h2 className="pr-2">{edge.node.title}</h2>
+                    <Link
+                        to={edge.node.fields.slug}
+                        aria-label={`Avaa tapahtuma`}
+                    >
+                        <OpenIcon style={{ marginTop: "10px" }} />
+                    </Link>
+                </span>
+                <EventFooter
+                    date={edge.node.date}
+                    location={edge.node.location}
+                />
+            </div>
         </div>
     ));
 
-    console.log(events);
     return (
         <Card>
-            <h1>
-                {events.length
-                    ? "Tulevat tapahtumat"
-                    : "Ei tulevia tapahtumia listattuna"}
-            </h1>
+            <h1>Tulevat tapahtumat</h1>
             {events.length ? (
                 events
             ) : (

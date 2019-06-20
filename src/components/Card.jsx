@@ -32,7 +32,7 @@ const Card = ({ children, concat = false, threshold = 700 }) => {
                             {children}
                             <div className="card-fade"></div>
                         </div>
-                        <div className="text-gray-300">
+                        <div className="text-gray-300 flex justify-center">
                             <button
                                 className="text-lg text-base pt-2"
                                 onClick={() => setReveal(true)}
