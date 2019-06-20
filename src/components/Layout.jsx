@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import Navbar from "./Navbar.jsx";
 import NavModal from "./NavModal.jsx";
+import Footer from "./Footer.jsx";
 
 const Layout = ({ children }) => {
     const [modalOpen, setModal] = useState(false);
@@ -14,13 +15,14 @@ const Layout = ({ children }) => {
                         links={[
                             { title: "Etusivu", url: "/" },
                             { title: "Tapahtumat", url: "/events" },
-                            { title: "Info", url: "/info" },
+                            { title: "Info & Jäsenyys", url: "/info" },
                         ]}
                         handleModal={() => setModal(true)}
                     />
                 </div>
                 {children}
                 <div className="flex-1" />
+                <Footer></Footer>
             </div>
             <NavModal
                 modalOpen={modalOpen}

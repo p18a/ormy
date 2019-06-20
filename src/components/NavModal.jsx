@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Transition } from "react-transition-group";
+import { Link } from "gatsby";
 
 import CloseIcon from "../icons/close.svg";
 import HomeIcon from "../icons/home.svg";
@@ -49,21 +50,21 @@ const NavModal = ({ modalOpen, handleModal }) => {
                             <ul className="flex flex-col items-left p-6">
                                 <li className="inline-flex items-center justify-start font-semibold text-light text-xl py-3">
                                     <HomeIcon />
-                                    <a className="pl-2 nav-link" href="/">
+                                    <Link className="pl-2 font-semibold text-light no-underline" to="/">
                                         Etusivu
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="inline-flex items-center justify-start font-semibold text-light text-xl py-3">
                                     <CalendarIcon />
-                                    <a className="pl-2 nav-link" href="/events">
+                                    <Link className="pl-2 font-semibold text-light no-underline" to="/events">
                                         Tapahtumat
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className="inline-flex items-center justify-start font-semibold text-light text-xl py-3">
                                     <InfoIcon />
-                                    <a className="pl-2 nav-link" href="/info">
-                                        Info
-                                    </a>
+                                    <Link className="pl-2 font-semibold text-light no-underline" to="/info">
+                                        Info & Jäsenyys
+                                    </Link>
                                 </li>
                             </ul>
                             <button
@@ -76,12 +77,12 @@ const NavModal = ({ modalOpen, handleModal }) => {
                         <div className="rounded-b bg-dark-500 p-6">
                             <span className="inline-flex items-center justify-start">
                                 <MailIcon />
-                                <a
-                                    className="font-semibold text-light text-lg pl-2 py-2 nav-link"
-                                    href="/email-signup"
+                                <Link
+                                    className="font-semibold text-light no-underline text-lg pl-2 py-2 nav-link"
+                                    to="/email-signup"
                                 >
                                     Liity sähköpostilistalle
-                                </a>
+                                </Link>
                             </span>
                         </div>
                     </div>
@@ -92,8 +93,8 @@ const NavModal = ({ modalOpen, handleModal }) => {
 };
 
 NavModal.propTypes = {
-    modalOpen: PropTypes.bool,
     handleModal: PropTypes.func,
+    modalOpen: PropTypes.bool,
 };
 
 export default NavModal;

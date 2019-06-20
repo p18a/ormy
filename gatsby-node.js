@@ -18,7 +18,7 @@ const slugify = string => {
         .toLowerCase()
         .replace(/\s+/g, "-") // Replace spaces with -
         .replace(p, c => to.charAt(from.indexOf(c))) // Replace special characters
-        .replace(/&/g, "-and-") // Replace & with ‘and’
+        .replace(/&/g, "-ja-") // Replace & with ‘ja’
         .replace(/[^\w\-]+/g, "") // Remove all non-word characters
         .replace(/\-\-+/g, "-") // Replace multiple - with single -
         .replace(/^-+/, "") // Trim - from start of text
@@ -53,7 +53,7 @@ exports.createPages = ({ graphql, actions }) => {
         resolve(
             graphql(`
                 query EventPagesQuery {
-                    allContentfulEvent(filter: {}) {
+                    allContentfulEvent {
                         edges {
                             node {
                                 id

@@ -2,6 +2,7 @@ import React from "react";
 
 import ClockIcon from "../icons/clock.svg";
 import CompassIcon from "../icons/compass.svg";
+import PropTypes from "prop-types";
 
 const EventFooter = ({ date, location }) => {
     return (
@@ -16,6 +17,11 @@ const EventFooter = ({ date, location }) => {
             </span>
         </div>
     );
+};
+
+EventFooter.propTypes = {
+    date: PropTypes.string,
+    location: PropTypes.string,
 };
 
 export default EventFooter;

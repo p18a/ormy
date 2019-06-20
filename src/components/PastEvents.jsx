@@ -31,6 +31,8 @@ const PastEvents = () => {
         <tr
             className="link-row"
             key={i}
+            role="link"
+            aria-label={`Avaa tapahtuma`}
             onClick={() => navigate(`${edge.node.fields.slug}`)}
         >
             <td>{edge.node.title ? edge.node.title : ""}</td>
@@ -47,7 +49,7 @@ const PastEvents = () => {
             <div className="py-4">
                 <span className="flex justify-between items-start">
                     <h2>{edge.node.title ? edge.node.title : ""}</h2>
-                    <Link to={edge.node.fields.slug}>
+                    <Link to={edge.node.fields.slug} aria-label={`Avaa tapahtuma`}>
                         <OpenIcon style={{ marginTop: "6px" }} />
                     </Link>
                 </span>

@@ -38,13 +38,13 @@ const FutureEvents = ({ desc = true }) => {
 
     return (
         <div>
-            <h1 className="px-4 pt-4">Tulevat tapahtumat</h1>
+            <h1 className="px-4">Tulevat tapahtumat</h1>
             {data.allContentfulEvent.edges.map((edge, i) => (
                 <Card key={i}>
                     <h2>
                         <span className="flex items-center">
                             <span className="pr-2">{edge.node.title}</span>
-                            <Link to={edge.node.fields.slug}>
+                            <Link to={edge.node.fields.slug} aria-label={`Avaa tapahtuma`}>
                                 <OpenIcon style={{ marginTop: "6px" }} />
                             </Link>
                         </span>

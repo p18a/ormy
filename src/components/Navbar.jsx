@@ -15,7 +15,7 @@ const Navbar = ({ links, handleModal }) => {
                             key={i}
                             className="font-semibold text-lg uppercase px-3 py-2 m-0"
                         >
-                            <Link className="nav-link" to={link.url}>
+                            <Link className="text-light no-underline uppercase" to={link.url}>
                                 {link.title}
                             </Link>
                         </li>
@@ -23,9 +23,9 @@ const Navbar = ({ links, handleModal }) => {
                 </ul>
                 <span className="inline-flex items-center">
                     <MailIcon></MailIcon>
-                    <button className="font-semibold text-lg uppercase px-3 pr-2 pl-1">
+                    <Link className="nav-link font-semibold no-underline text-light text-lg uppercase px-3 pr-2 pl-1" to="/email-signup">
                         Liity sähköpostilistalle
-                    </button>
+                    </Link>
                 </span>
             </nav>
             <nav className="md:hidden flex flex-row-reverse items-center h-full">
@@ -38,7 +38,7 @@ const Navbar = ({ links, handleModal }) => {
 };
 
 Navbar.propTypes = {
-    links: PropTypes.arrayOf(PropTypes.object).isRequired,
+    links: PropTypes.arrayOf(PropTypes.object),
     handleModal: PropTypes.func.isRequired,
 };
 

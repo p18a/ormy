@@ -2,8 +2,8 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                light: "#F7F1F8",
-                accent: "#EF5350",
+                "light": "#F7F1F8",
+                "accent": "#f44336",
 
                 "inherit": "inherit",
 
@@ -21,6 +21,12 @@ module.exports = {
                 "base": "17px"
             },
             minHeight: theme => ({
+                auto: "auto",
+                ...theme("spacing"),
+                full: "100%",
+                screen: "100vh",
+            }),
+            maxHeight: theme => ({
                 auto: "auto",
                 ...theme("spacing"),
                 full: "100%",

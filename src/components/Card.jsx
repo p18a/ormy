@@ -13,7 +13,6 @@ const Card = ({ children, concat = false, threshold = 700 }) => {
                 container.current &&
                 container.current.clientHeight > threshold
             ) {
-                console.log("a");
                 setReveal(false);
             }
         }, []);
@@ -35,12 +34,14 @@ const Card = ({ children, concat = false, threshold = 700 }) => {
                         </div>
                         <div className="text-gray-300">
                             <button
-                                className="text-lg font-semibold text-base pt-2"
+                                className="text-lg text-base pt-2"
                                 onClick={() => setReveal(true)}
                             >
                                 <span className="flex items-center">
-                                    <span className="pr-2">Lue lisää</span>
-                                    <ChevronDownIcon style={{marginTop: "4px"}}/>
+                                    <span className="underline">Lue lisää</span>
+                                    <ChevronDownIcon
+                                        style={{ marginTop: "4px" }}
+                                    />
                                 </span>
                             </button>
                         </div>
@@ -52,7 +53,8 @@ const Card = ({ children, concat = false, threshold = 700 }) => {
 };
 
 Card.propTypes = {
-    title: PropTypes.string,
+    concat: PropTypes.bool,
+    threshold: PropTypes.number,
 };
 
 export default Card;

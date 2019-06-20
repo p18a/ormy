@@ -2,16 +2,14 @@ import React from "react";
 import { Transition } from "react-transition-group";
 import throttle from "lodash.throttle";
 
-import HeroHeader from "../components/HeroHeader.jsx";
-import Logo from "../logo.svg";
+import Logo from "../images/logo.svg";
+import SEO from "../components/SEO.jsx";
 import Layout from "../components/Layout.jsx";
-import "../styles.css";
+import HeroHeader from "../components/HeroHeader.jsx";
 import AboutCard from "../components/AboutCard.jsx";
 import ContactCard from "../components/ContactCard.jsx";
-import MembershipCard from "../components/MembershipCard.jsx";
-import SEO from "../components/SEO.jsx";
-import DocumentsCard from "../components/DocumentsCard.jsx";
-import FutureEvents from "../components/FutureEvents.jsx";
+import "../styles.css";
+import FutureEventsOverview from "../components/FutureEventsOverview";
 
 const headerSize = "60vh";
 
@@ -43,7 +41,7 @@ class IndexPage extends React.Component {
 
     onScroll = throttle(() => {
         this.setState({ scrolled: window.scrollY > scrollThreshold });
-    }, 100);
+    }, 150);
 
     componentDidMount() {
         document.addEventListener(
@@ -93,16 +91,14 @@ class IndexPage extends React.Component {
                         )}
                     </Transition>
                     <div
-                        className="container z-20"
+                        className="container pb-0 z-20"
                         style={{ marginTop: headerSize }}
                     >
-                        <div className="bg-dark-900 rounded">
+                        <div className="bg-dark-900 pb-12 rounded">
                             <AboutCard />
-                            <FutureEvents desc={false} />
-                            <MembershipCard />
                             <div className="flex flex-wrap">
                                 <div className="w-full md:w-1/2">
-                                    <DocumentsCard />
+                                    <FutureEventsOverview />
                                 </div>
                                 <div className="w-full md:w-1/2">
                                     <ContactCard />
