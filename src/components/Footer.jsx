@@ -53,7 +53,7 @@ const Footer = () => {
         </a>
     ));
 
-    const notes = notesResult.map((note, i) => <span className="text-light">{note}</span>);
+    const notes = notesResult.map((note, i) => <span key={{i}} className="text-light">{note}</span>);
 
     return (
         <div className="bg-dark-900 z-10">
