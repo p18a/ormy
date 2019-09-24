@@ -35,15 +35,17 @@ const FutureEventsOverview = () => {
                 <div className="border-b border-dark-100 w-full"></div>
             ) : null}
             <div className="py-4">
-                <span className="flex items-start">
-                    <h2 className="pr-2">{edge.node.title}</h2>
-                    <Link
-                        to={edge.node.fields.slug}
-                        aria-label={`Avaa tapahtuma`}
-                    >
-                        <OpenIcon style={{ marginTop: "10px" }} />
-                    </Link>
-                </span>
+                <h2>
+                    <span className="flex items-center">
+                        <span className="pr-2">{edge.node.title}</span>
+                        <Link
+                            to={edge.node.fields.slug}
+                            aria-label={`Avaa tapahtuma`}
+                        >
+                            <OpenIcon />
+                        </Link>
+                    </span>
+                </h2>
                 <EventFooter
                     date={edge.node.date}
                     location={edge.node.location}

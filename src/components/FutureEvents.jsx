@@ -45,7 +45,7 @@ const FutureEvents = ({ desc = true }) => {
                         <span className="flex items-center">
                             <span className="pr-2">{edge.node.title}</span>
                             <Link to={edge.node.fields.slug} aria-label={`Avaa tapahtuma`}>
-                                <OpenIcon style={{ marginTop: "6px" }} />
+                                <OpenIcon />
                             </Link>
                         </span>
                     </h2>
