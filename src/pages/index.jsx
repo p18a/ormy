@@ -9,6 +9,7 @@ import HeroHeader from "../components/HeroHeader.jsx";
 import AboutCard from "../components/AboutCard.jsx";
 import ContactCard from "../components/ContactCard.jsx";
 import FutureEventsOverview from "../components/FutureEventsOverview";
+import NewsOverview from "../components/NewsOverview";
 
 const headerSize = "60vh";
 
@@ -43,14 +44,11 @@ class IndexPage extends React.Component {
     }, 150);
 
     componentDidMount() {
-        document.addEventListener(
-            "scroll",
-            this.onScroll
-        );
+        document.addEventListener("scroll", this.onScroll);
     }
 
     componentWillUnmount() {
-        document.removeEventListener("scroll", this.onScroll)
+        document.removeEventListener("scroll", this.onScroll);
     }
 
     render() {
@@ -100,6 +98,7 @@ class IndexPage extends React.Component {
                                     <FutureEventsOverview />
                                 </div>
                                 <div className="w-full md:w-1/2">
+                                    <NewsOverview />
                                     <ContactCard />
                                 </div>
                             </div>
