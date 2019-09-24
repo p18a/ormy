@@ -9,10 +9,10 @@ import InfoIcon from "../icons/info.svg";
 import CalendarIcon from "../icons/calendar.svg";
 import MailIcon from "../icons/mail.svg";
 
-const transition = 350;
+const transition = 200;
 
 const defaultStyle = {
-    transition: `opacity ${transition}ms cubic-bezier(.33,.54,.81,.5)`,
+    transition: `opacity ${transition}ms ease-in-out`,
     opacity: 0,
 };
 
