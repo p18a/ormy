@@ -18,7 +18,7 @@ module.exports = {
                 "dark-100": "#343434",
             },
             fontSize: {
-                "base": "17px"
+                "base": "16px"
             },
             minHeight: theme => ({
                 auto: "auto",
