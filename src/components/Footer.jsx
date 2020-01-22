@@ -47,7 +47,6 @@ const Footer = () => {
             }}
         >
             <Image
-                imgStyle={{ filter: "brightness(0) invert(1)" }}
                 fluid={edge.node.image.fluid}
             ></Image>
         </a>
