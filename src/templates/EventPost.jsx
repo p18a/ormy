@@ -17,10 +17,11 @@ const EventPost = ({ data }) => {
                 <div className="container">
                     <Card>
                         {post.title ? <h1>{post.title}</h1> : null}
-                        {documentToReactComponents(
+                        {post.childContentfulEventDescriptionRichTextNode && post.childContentfulEventDescriptionRichTextNode.json ?
+                        documentToReactComponents(
                             post.childContentfulEventDescriptionRichTextNode
                                 .json
-                        )}
+                        ) : <p>Tapahtumalla ei ole vielä kuvausta.</p> }
                         <EventFooter
                             date={post.date}
                             location={post.location}
